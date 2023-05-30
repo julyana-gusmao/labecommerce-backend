@@ -1,0 +1,24 @@
+{
+  "name": "labecommerce-backend",
+  "version": "1.0.0",
+  "description": "my first package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the2kira/labecommerce-backend.git"
+  },
+  "author": "the2kira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the2kira/labecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/the2kira/labecommerce-backend#readme",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "typescript": "^5.0.4"
+  }
+}
