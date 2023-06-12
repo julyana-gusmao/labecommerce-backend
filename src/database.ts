@@ -1,7 +1,8 @@
 import { TProducts, TUsers } from "./types";
 
+//users
 export const users: TUsers[] = [
-   
+
     {
         id: "u001",
         name: "Fulano",
@@ -16,12 +17,33 @@ export const users: TUsers[] = [
         email: "beltrana@email.com",
         password: "beltrana00",
         createdAt: new Date().toISOString()
-    }
+    },
 
 ]
 
+
+function createUser(id: string, name: string, email: string, password: string){
+    const newUser: TUsers = {
+        id: id,
+        name: name,
+        email: email,
+        password: password,
+        createdAt: new Date().toISOString()
+    }
+
+    users.push(newUser)
+    console.log("Cadastro realizado com sucesso")
+
+}
+
+
+function getAllUsers():void {
+    console.log(users)
+}
+
+//products
 export const products: TProducts[] = [
-  
+
     {
         id: "prod001",
         name: "Mouse gamer",
@@ -38,3 +60,27 @@ export const products: TProducts[] = [
         imageUrl: "https://picsum.photos/seed/Monitor/400"
     }
 ]
+
+function getAllProducts():void {
+    console.log(products);
+}
+
+function createProduct(id:string, name:string, price:number, description:string, imageUrl:string){
+    
+    const newProduct: TProducts = {
+        id,
+        name,
+        price,
+        description,
+        imageUrl
+    }
+    products.push(newProduct)
+}
+
+function searchProductByName(name: string) {
+
+    const searchProduct:{} = products.filter((product) => {
+       return product.name.toLowerCase().includes(name.toLowerCase())
+    })
+       console.log(searchProduct)
+}    

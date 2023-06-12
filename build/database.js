@@ -15,8 +15,11 @@ exports.users = [
         email: "beltrana@email.com",
         password: "beltrana00",
         createdAt: new Date().toISOString()
-    }
+    },
 ];
+function getAllUsers() {
+    console.log(exports.users);
+}
 exports.products = [
     {
         id: "prod001",
@@ -33,4 +36,8 @@ exports.products = [
         imageUrl: "https://picsum.photos/seed/Monitor/400"
     }
 ];
+function getAllProducts() {
+    console.log(exports.products);
+}
+getAllUsers();
 //# sourceMappingURL=database.js.map
