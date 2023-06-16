@@ -1,6 +1,8 @@
 import { TProducts, TUsers } from "./types";
 
-//users
+//////////////////users
+
+//array de objetos de usuários com o type TUsers
 export const users: TUsers[] = [
 
     {
@@ -21,7 +23,7 @@ export const users: TUsers[] = [
 
 ]
 
-
+//function para criar um usuário novo
 function createUser(id: string, name: string, email: string, password: string){
     const newUser: TUsers = {
         id: id,
@@ -36,12 +38,14 @@ function createUser(id: string, name: string, email: string, password: string){
 
 }
 
+//function para pegar todos os usuários, o retorno é vazio, pois não retorna nada além do console.log
+// function getAllUsers():void {
+//     console.log(users)
+// }
 
-function getAllUsers():void {
-    console.log(users)
-}
+////////////////products
 
-//products
+//array de objetos de produtos com o type TProducts
 export const products: TProducts[] = [
 
     {
@@ -61,10 +65,7 @@ export const products: TProducts[] = [
     }
 ]
 
-function getAllProducts():void {
-    console.log(products);
-}
-
+//function para criar um produto novo
 function createProduct(id:string, name:string, price:number, description:string, imageUrl:string){
     
     const newProduct: TProducts = {
@@ -84,3 +85,8 @@ function searchProductByName(name: string) {
     })
        console.log(searchProduct)
 }    
+
+//function para pegar todos os produtos, com retorno vazio pois só retorna console.log
+function getAllProducts():void {
+    console.log(products);
+}
