@@ -55,3 +55,34 @@ VALUES (
      ('p003', 'Mousepad RGB', 180, 'Lorem Ipsum Lorem', 'https://picsum.photos/200'),
      ('p004', 'Controle XBOX', 500, 'Lorem Ipsum Lorem', 'https://picsum.photos/200'),
      ('p005', 'Cadeira Gamer', 1500, 'Lorem Ipsum Lorem', 'https://picsum.photos/200');
+
+
+     ---------- Queries SELECT
+     SELECT users.name FROM users;
+     SELECT products.name FROM products;
+
+     SELECT * FROM products
+     WHERE products.name LIKE '%gamer%';
+
+    
+    ------------- QUERIES ADD AND DELETE
+    INSERT INTO users (id, name, email, password, created_at);
+
+    INSERT INTO products (id, name, price, description, image_url);
+
+    DELETE FROM users
+    WHERE id = ''
+
+    DELETE FROM products
+    WHERE id = '';
+
+
+    UPDATE products
+    
+    SET id = '',
+    name = '',
+    price = '',
+    description = '',
+    image_url = ''
+    
+    WHERE id = '';
