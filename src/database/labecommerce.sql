@@ -28,8 +28,6 @@ FROM purchases
 INNER JOIN users
 ON buyer = users.id;
 
-
-
 -------------------- CREATES -------------------
 
 
@@ -40,9 +38,11 @@ CREATE TABLE
         name TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
-        created_at TEXT NOT NULL
+        created_at TEXT DEFAULT (DATETIME()) NOT NULL
     );
 
+
+DROP TABLE users;
 
     
     ----------- Products
@@ -64,10 +64,14 @@ CREATE TABLE
         id TEXT PRIMARY KEY,
         buyer TEXT NOT NULL,
         total_price REAL NOT NULL,
-        created_at TEXT NOT NULL,
+        created_at TEXT DEFAULT (DATETIME()) NOT NULL,
         FOREIGN KEY (buyer) REFERENCES users(id)
+        ON UPDATE CASCADE
+		ON DELETE CASCADE
     );
 
+
+DROP TABLE purchases;
 
 ---------- Purchases Products
 
@@ -75,38 +79,39 @@ CREATE TABLE
     IF NOT EXISTS purchases_products(
         purchase_id TEXT NOT NULL,
         product_id TEXT NOT NULL,
-        quantity INT NOT NULL
+        quantity INT NOT NULL,
+        FOREIGN KEY (product_id) REFERENCES products(id)
+        ON UPDATE CASCADE -- efeito cascata ao atualizar id na tabela users
+		ON DELETE CASCADE -- efeito cascata ao atualizar id na tabela users
     );
 
 
+DROP TABLE purchases_products;
 
+DROP TABLE products;
 -------------------- INSERTS -------------------
 INSERT INTO
     users (
         id,
         name,
         email,
-        password,
-        created_at
+        password
     )
 VALUES (
         'u001',
         'Fayra',
         'fayralinda@gmail.com',
-        '123321',
-        '26-06'
+        '123321'
     ), (
         'u002',
         'Alexia',
         'alexiacris@gmail.com',
-        '1232314',
-        '26-06'
+        '1232314'
     ), (
         'u003',
         'Lucca',
         'luquinha2000@hotmail.com',
-        'sr195812',
-        '26-06'
+        'sr195812'
     );
 
 
@@ -177,6 +182,7 @@ VALUES (
 
 
     INSERT INTO purchases_products (purchase_id, product_id, quantity)
+    VALUES ("c001", "p001", 1), ("c002", "p002", 1), ("c002", "p004", 2);
 
 -------- Setting the total price as soon as enraised
 
@@ -191,8 +197,7 @@ INSERT INTO
         id,
         name,
         email,
-        password,
-        created_at
+        password
     );
 
 INSERT INTO products (id, name, price, description, image_url);
